@@ -27,7 +27,7 @@ class Data extends Component {
             .then((res) => {
                 this.setState({
                     data: res.data,
-                    render: false
+                    render: true
                 })
             })
             .catch((err) => {
@@ -39,7 +39,7 @@ class Data extends Component {
         if (this.state.render) {
             return (
                 <div>
-                    <p>
+                    
                         {this.state.data.businesses.map((bussiness) =>
                             <div>
                                 <h2>{bussiness.name}</h2>
@@ -48,7 +48,6 @@ class Data extends Component {
 
                             </div>
                         )}
-                    </p>
                 </div>
 
             )
