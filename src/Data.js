@@ -7,7 +7,8 @@ class Data extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: null
+            data: null,
+            render: false
         };
 
     }
@@ -25,7 +26,8 @@ class Data extends Component {
         })
             .then((res) => {
                 this.setState({
-                    data:res.data
+                    data: res.data,
+                    render: false
                 })
             })
             .catch((err) => {
@@ -34,12 +36,31 @@ class Data extends Component {
     }
 
     render() {
-        
-        return (
-            <div>
-                <h1>DATA</h1>
-            </div>
-        )
+        if (this.state.render) {
+            return (
+                <div>
+                    <p>
+                        {this.state.data.businesses.map((bussiness) =>
+                            <div>
+                                <h2>{bussiness.name}</h2>
+                                <h3>Rating : {bussiness.rating}</h3>
+                                <h3>Contact : {bussiness.phone}</h3>
+
+                            </div>
+                        )}
+                    </p>
+                </div>
+
+            )
+        }
+        else {
+            return (
+                <div>
+                    <h1>LOADING ... </h1>
+                </div>
+
+            )
+        }
     }
 }
 export default Data;
