@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 const API_URL = 'https://www.yelp.com/biz/lolinda-san-francisco';
-const Token = 'pSOSDd1kvAwg-Y85LGt3PLjG3V1Zq03hEwk3pmEQ1tQbS0YsG_2DsNLC-BXFW-EHKUAiaz4QikfbN1okYl1vlIIJ8iFQqYOsjbl5TBPA_uQIxSqyUohMlV9ByM5TY3Yx';
+const Token = 'PDwkkLWro7REKkoxUxWrQpm7dFxrTb28G3ZAgXRTm99BZRHWTAxTuIK_T6gy8ImOE0_OsiAYC1n8Tlzi7FHtWRXSyPNBvQh4-bJyDMAg7JPHLbavN6Hza0ie2OlTY3Yx';
 const locationSearched = 'NEW YORK';
 class Data extends Component {
     constructor(props) {
@@ -24,21 +24,20 @@ class Data extends Component {
             }
         })
             .then((res) => {
-                console.log(res)
+                this.setState({
+                    data:res.data
+                })
             })
             .catch((err) => {
                 console.log(err);
             })
-        console.log(response, 0);
-        this.setState({
-            data: { response }
-        })
     }
 
     render() {
+        
         return (
             <div>
-                {/* <h1>{this.state.response}</h1> */}
+                <h1>DATA</h1>
             </div>
         )
     }
